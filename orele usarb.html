@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orar USARB</title>
+</head>
+<style>
+    
+* {   padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body > *,
+section > * {
+    margin-top: 20px;
+}
+
+body {
+    background: gray;
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 20px;
+    background: white;
+    color: gray;
+    height: 60px;
+    width: 450px;
+    align-content: center;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+}
+
+h3 {
+    font-family: 'Times New Roman';
+    font-size: 16px;
+    color: white;
+}
+
+
+.buttons a:first-child {
+    background: #25975A;
+}
+.buttons a:nth-child(2) {
+    background: #f0506e;
+}
+.buttons a:last-child {
+    background: rgb(123, 70, 105);
+}
+
+.buttons a:not(:first-child) {
+    margin-left: 10px;
+}
+
+.buttons svg {
+    position: absolute;
+}
+
+
+.baiaiaio h3 {
+    background: #25975A;
+    height: 40px;
+    width: 120px;
+    align-content: center;
+    text-align: center;
+}
+
+h5 {
+    font-size: 12px;
+    color: white;
+    margin: 0 0 20px 10px;
+}
+
+.buttons {
+    height: 20px;
+}
+
+.buttons a {
+    color: white;
+    font-size: 14px;
+    font-family: 'Times New Roman';
+    text-decoration: none;
+    border-radius: 3px;
+    background: black;
+    padding: 5px 25px 5px 10px;
+    border: 1px solid white;
+}
+
+table {
+    width: 100%;
+    height: 200px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+tr th:first-child,
+thead th:not(:first-child) {
+    color: white;
+    background: #25975A;
+    border: 1px solid white;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+
+#shedule1 tr th:first-child {
+    width: 120px;
+}
+
+#shedule1 thead th:not(:first-child) {
+    width: 50;
+}
+
+#shedule1, #shedule2 {
+    box-shadow: 10px -10px 10px rgba(0, 0, 0, 0.8);
+} 
+
+tbody tr th:not(:first-child) {
+    background: white;
+    border: 1px solid black;
+}
+
+#shedule2 tbody tr th:first-child {
+    width: 140px;
+    height: 95px;
+}
+
+#shedule2 tbody tr th:first-child div {
+    font-size: 15px;
+    margin: 5px;
+}
+
+#shedule2 tbody tr th:not(:first-child) {
+    width: 565px;
+}
+
+#shedule1 tbody tr th:hover {
+    background: #f0506e;
+    border: 1px solid white;
+}
+
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  
+input:checked + .slider {
+    background-color: #25975A;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.baiaiaio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-zone,
+#week-of-year {
+    border: none;
+    height: 40px;
+    width: 100%;
+}
+
+.instructions {
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter > *:not(:first-child) {
+    margin-left: 20px;
+}
+
+.search-div {
+    position: relative;
+    background: white;
+}
+
+.search-div div:first-child {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#week-of-year,
+#day-of-week {
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    color: #666;
+    border: none;
+    background: white;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+}
+
+#day-of-week option {
+    font-family: 'Times New Roman';
+    font-size: 20px;
+}
+
+.result-zone {
+    background: white;
+    height: 100px;
+    width: 100%;
+}
+
+#info-zone {
+    align-content: center;
+    background: #edfbf6;
+    color: #32d296;
+    font-size: 16px;
+    padding: 15px 30px 15px 15px;
+    width: 100%;
+}
+
+* section:not(:first-child) {
+    margin-left: 40px;
+}
+
+.search-div {
+    display: flex;
+}
+
+.uk-search-icon {
+    color: #25975A !important;
+}
+
+.filter {
+    display: flex;
+    align-items: end;
+}
+
+
+</style>
+<body>
+    <section>
+        <h1>Orarul Cursurilor</h1>
+        
+        <div class="baiaiaio">
+            <h3>Grupe</h3>
+            <h3>Profesori</h3>
+            <h3>Aule</h3>
+        </div>
+
+        <div class="filter">
+            <h3>Regim pentru student</h3>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="search-div">
+            <div>
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="search-icon">
+                    <circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle>
+                    <path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path>
+                </svg>
+            </div>
+            <input type="text" class="search-zone">
+        </div>
+        
+
+        <div class="result-zone"></div>
+
+        <select name="" id="day-of-week">
+            <option value="">Ziua</option>
+            <option value="">Luni</option>
+        </select>
+
+        <select name="" id="week-of-year">
+            <option value="-1">Săptămîna</option>
+            <option value="1" class="initial">1 (2.9.2024 - 8.9.2024)</option>
+        </select>
+
+        <table id="shedule1">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>L - 4</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Ma - 5</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Mi - 6</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>J - 7</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>V - 8</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>S - 9</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>D - 10</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="instructions">
+            <h5>P - Prelegere</h5>
+            <h5>S - Seminar</h5>
+            <h5>L - Laborator</h5>
+            <h5>PC - Proiect de Curs</h5>
+            <h5>EP - Evaluarea periodica</h5>
+            <h5>C - Consultație</h5>
+            <h5>E - Examinare</h5>
+            <h5>R - Reexaminare</h5>
+            <h5>SP - Seminar prealabil</h5>
+            <h5>ST - Seminar de totalizare</h5>
+        </div>
+
+        <div class="buttons">
+            <a href="#">Descarcă orar
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="file-pdf">
+                    <rect fill="none" stroke="#000" width="13" height="17" x="3.5" y="1.5"></rect>
+                    <path d="M14.65 11.67c-.48.3-1.37-.19-1.79-.37a4.65 4.65 0 0 1 1.49.06c.35.1.36.28.3.31zm-6.3.06l.43-.79a14.7 14.7 0 0 0 .75-1.64 5.48 5.48 0 0 0 1.25 1.55l.2.15a16.36 16.36 0 0 0-2.63.73zM9.5 5.32c.2 0 .32.5.32.97a1.99 1.99 0 0 1-.23 1.04 5.05 5.05 0 0 1-.17-1.3s0-.71.08-.71zm-3.9 9a4.35 4.35 0 0 1 1.21-1.46l.24-.22a4.35 4.35 0 0 1-1.46 1.68zm9.23-3.3a2.05 2.05 0 0 0-1.32-.3 11.07 11.07 0 0 0-1.58.11 4.09 4.09 0 0 1-.74-.5 5.39 5.39 0 0 1-1.32-2.06 10.37 10.37 0 0 0 .28-2.62 1.83 1.83 0 0 0-.07-.25.57.57 0 0 0-.52-.4H9.4a.59.59 0 0 0-.6.38 6.95 6.95 0 0 0 .37 3.14c-.26.63-1 2.12-1 2.12-.3.58-.57 1.08-.82 1.5l-.8.44A3.11 3.11 0 0 0 5 14.16a.39.39 0 0 0 .15.42l.24.13c1.15.56 2.28-1.74 2.66-2.42a23.1 23.1 0 0 1 3.59-.85 4.56 4.56 0 0 0 2.91.8.5.5 0 0 0 .3-.21 1.1 1.1 0 0 0 .12-.75.84.84 0 0 0-.14-.25z"></path>
+                </svg>
+            </a>
+            <a href="#">Examene
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="print"><polyline fill="none" stroke="#000" points="4.5 13.5 1.5 13.5 1.5 6.5 18.5 6.5 18.5 13.5 15.5 13.5"></polyline>
+                    <polyline fill="none" stroke="#000" points="15.5 6.5 15.5 2.5 4.5 2.5 4.5 6.5"></polyline>
+                    <rect fill="none" stroke="#000" width="11" height="6" x="4.5" y="11.5"></rect>
+                    <rect width="8" height="1" x="6" y="13"></rect><rect width="8" height="1" x="6" y="15"></rect>
+                </svg>
+            </a>
+            <a href="#">Planificare
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="database">
+                    <ellipse fill="none" stroke="#000" cx="10" cy="4.64" rx="7.5" ry="3.14"></ellipse>
+                    <path fill="none" stroke="#000" d="M17.5,8.11 C17.5,9.85 14.14,11.25 10,11.25 C5.86,11.25 2.5,9.84 2.5,8.11"></path>
+                    <path fill="none" stroke="#000" d="M17.5,11.25 C17.5,12.99 14.14,14.39 10,14.39 C5.86,14.39 2.5,12.98 2.5,11.25"></path>
+                    <path fill="none" stroke="#000" d="M17.49,4.64 L17.5,14.36 C17.5,16.1 14.14,17.5 10,17.5 C5.86,17.5 2.5,16.09 2.5,14.36 L2.5,4.64"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div id="info-zone">Serviciul este inactiv între ore 23:00 și 3:00</div>
+    </section>
+    <section>
+        <h2>UNIVERSITATEA DE STAT „ALECU RUSSO” DIN BĂLȚI</h2>
+        <table id="shedule2">
+            <tbody>
+                <tr>
+                    <th>
+                        <div>8:00</div>
+                        <div>9:30</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div>9:45</div>
+                        <div>11:15</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div>11:30</div>
+                        <div>13:00</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div>13:15</div>
+                        <div>14:45</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div>15:00</div>
+                        <div>16:30</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div>16:45</div>
+                        <div>18:15</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div>18:30</div>
+                        <div>20:00</div>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
